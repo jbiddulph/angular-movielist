@@ -21,18 +21,36 @@ export class MovielistService {
   }
   addMovieToFavourites(movie) {
     console.log('movie: ', this.favapi);
-    this.http.post(this.favapi, movie, {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-      },
-    });
+    this.http
+      .post(this.favapi, movie, {
+        headers: {
+          Authorization: 'Bearer ' + this.currentUser.token,
+        },
+      })
+      .subscribe({
+        next: (data) => {
+          console.log('data: ', data);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+        },
+      });
   }
   removeFavourite(movieid) {
     console.log('id: ', movieid);
-    this.http.delete(this.favapi + movieid, {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-      },
-    });
+    this.http
+      .delete(this.favapi + movieid, {
+        headers: {
+          Authorization: 'Bearer ' + this.currentUser.token,
+        },
+      })
+      .subscribe({
+        next: (data) => {
+          console.log('data: ', data);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+        },
+      });
   }
 }
