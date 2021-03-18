@@ -1,0 +1,18 @@
+<ul>
+  <li *ngFor="let movie of movies" :key="movie.id">
+    <div class="card" style="width: 18rem">
+      <img class="card-img-top" [src]="movie.Poster" alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.Title }}</h5>
+        <p class="card-text">Type: {{ movie.Type }} Year: {{ movie.Year }}</p>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="addFavorite(movie)"
+        >
+          Like
+        </button>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div id="formContent">
+    <!-- Login Form -->
+    <form [formGroup]="loginForm">
+      Value: {{ loginForm.value | json }}
+      <input placeholder="Email" formControlName="email" />
+      <input
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <button (click)="login()">Login</button>
+    </form>
+  </div>
+</div>
