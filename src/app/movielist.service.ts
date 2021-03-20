@@ -20,7 +20,6 @@ export class MovielistService {
     });
   }
   addMovieToFavourites(movie) {
-    console.log('movie: ', this.favapi);
     this.http
       .post(this.favapi, movie, {
         headers: {
